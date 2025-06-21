@@ -25,26 +25,26 @@ Verifica que el mensaje tenga imagen con caption /tumor.
 
 Descarga la imagen.
 
-La envía vía HTTP POST a la API: https://web-production-d25c.up.railway.app/predict.
+La envía vía HTTP POST a la API
 
 Devuelve el PDF con los resultados al usuario por Telegram.
 
 🔹 Flujo para /emocion:
-Verifica que el mensaje tenga imagen con caption /emocion.
+
 
 Descarga la imagen.
 
-La envía a: https://emotion-ai-vf35.onrender.com/upload.
+
 
 Devuelve el PDF con el análisis emocional.
 
 🔹 Flujo para /dataframes:
-Hace una solicitud GET a: https://markia.onrender.com/dataframes-text.
+
 
 Envía el archivo resultante como documento PDF al usuario.
 
 🔹 Flujo para /graphs:
-Hace una solicitud GET a: https://markia.onrender.com/download/graphs.
+
 
 Envía las gráficas como archivo PDF por Telegram.
 
@@ -59,5 +59,5 @@ Reconocimiento de Emociones
 Plataforma de Marketing
 
 👤 Usuario configurado
-ID de Telegram usado para respuestas directas: 6960727388
+ID de Telegram usado para respuestas directas
 
