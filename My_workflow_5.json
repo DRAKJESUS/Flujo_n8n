@@ -1,0 +1,758 @@
+{
+  "name": "My workflow 5",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2120,
+        -60
+      ],
+      "id": "79922d31-545d-4e02-ae3d-7ef1192f6c19",
+      "name": "TwoMor3Bot Trigger",
+      "webhookId": "bb6be2a2-be2a-4341-9e9c-d8b84feb396c",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "65e9f242-4093-45a0-aa46-7170696beca6",
+                    "leftValue": "={{$json[\"message\"][\"text\"] || \"\"}}",
+                    "rightValue": "/tumor",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{$json[\"message\"][\"text\"] || \"\"}}",
+                    "rightValue": "/start",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    },
+                    "id": "4f77cdc8-87cf-4cc8-8033-7bbe9f2270e5"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "72fa5737-0e1b-4d52-a938-073130f93c13",
+                    "leftValue": "={{$json[\"message\"][\"text\"] || \"\"}}",
+                    "rightValue": "/emocion",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ad6e25fc-042e-4cea-9d26-748cbc2a6297",
+                    "leftValue": "={{$json[\"message\"][\"text\"] || \"\"}}",
+                    "rightValue": "/marketing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ea3cb71f-3d79-4464-ace7-1226157c09f0",
+                    "leftValue": "={{ ($json.message.photo !== undefined && $json.message.caption && $json.message.caption.toLowerCase().includes(\"/tumor\")).toString() }}",
+                    "rightValue": "=true",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c438cdb9-c58e-4e6c-8ec6-0b4d45331afc",
+                    "leftValue": "={{ ($json.message.photo !== undefined && $json.message.caption && $json.message.caption.toLowerCase().includes(\"/emocion\")).toString() }}",
+                    "rightValue": "true",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "dataframes-condition",
+                    "leftValue": "={{$json[\"message\"][\"text\"] || \"\"}}",
+                    "rightValue": "/dataframes",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "graphs-condition",
+                    "leftValue": "={{$json[\"message\"][\"text\"] || \"\"}}",
+                    "rightValue": "/graphs",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1720,
+        -320
+      ],
+      "id": "de3656e0-5846-4e8b-aa11-19b93ab17ee4",
+      "name": "Router Principal"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "👋 ¡Hola! Soy TwoMor3Bot, tu asistente multifunción. Puedo ayudarte con:\n\n🔍 /tumor - Análisis de imágenes médicas\n😊 /emocion - Reconocimiento de emociones en rostros\n📊 /dataframes - Obtener dataframes\n📈 /graphs - Obtener gráficos",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1340,
+        -340
+      ],
+      "id": "36eca00c-3d61-4e7c-88b3-b8a847eacbba",
+      "name": "Mensaje de Bienvenida",
+      "webhookId": "f8240a64-ce4b-4a30-a184-4418134c9d8b",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "🩺 Por favor, envía una imagen de resonancia magnética (MRI) con el texto '/tumor' como descripción para analizarla.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -820,
+        -540
+      ],
+      "id": "bbf86e53-6572-4b48-a698-f7344616f641",
+      "name": "Tumor - Solicitar Imagen",
+      "webhookId": "a2637d80-998d-4c2e-b356-aa74d15bdfab",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "tumor-check-image",
+              "leftValue": "={{ $json.message.photo[0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1240,
+        -760
+      ],
+      "id": "84526d90-299e-4771-947b-c99c5907687c",
+      "name": "Tumor - Verificar Imagen"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.photo[1].file_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1020,
+        -760
+      ],
+      "id": "ab0418f0-1423-46f4-9a86-a036b2242278",
+      "name": "Tumor - Obtener Imagen",
+      "webhookId": "95d781d0-14b2-4499-9fdc-ae3f8f39a0a0",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "😊 Por favor, envía una foto de un rostro con el texto '/emocion' como descripción para analizar las emociones.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1000,
+        -360
+      ],
+      "id": "5559fd14-714f-4998-9a8f-5c793a469645",
+      "name": "Emotion - Solicitar Imagen",
+      "webhookId": "a3cf4cc6-14ff-4300-9219-86ac8c197b57",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "emotion-check-image",
+              "leftValue": "={{ $json.message.photo[0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1240,
+        -180
+      ],
+      "id": "691b5d49-5456-4f90-affe-d80ebae8e56c",
+      "name": "Emotion - Verificar Imagen"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.photo[1].file_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1020,
+        -160
+      ],
+      "id": "0532cb8f-0687-45b2-874b-02153e67e84b",
+      "name": "Emotion - Obtener Imagen",
+      "webhookId": "00361bcc-2b75-447c-b4cc-854d5df1e91b",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://web-production-d25c.up.railway.app/predict",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "data",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -760,
+        -760
+      ],
+      "id": "97f5fa20-512c-4ba0-8940-07a368167015",
+      "name": "HTTP Request",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "6960727388",
+        "binaryData": true,
+        "additionalFields": {
+          "fileName": "predict.pdf"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -460,
+        -760
+      ],
+      "id": "8307eddb-afb9-4316-857a-3a493d6535ca",
+      "name": "Telegram2",
+      "webhookId": "7ee93104-22e5-47a7-bf48-b1d8b7fda06d",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://emotion-ai-vf35.onrender.com/upload",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -700,
+        -160
+      ],
+      "id": "c4d25da1-3f8a-40cb-a5ec-6c9331acecbc",
+      "name": "HTTP Request1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "=6960727388",
+        "binaryData": true,
+        "additionalFields": {
+          "fileName": "emotion.pdf"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -420,
+        -160
+      ],
+      "id": "c567a203-f6d4-4830-b866-3d1c6386bfaf",
+      "name": "Telegram",
+      "webhookId": "7ee93104-22e5-47a7-bf48-b1d8b7fda06d",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://markia.onrender.com/dataframes-text",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "08cccd8e-9c09-42d8-a4e0-f460c438e623",
+      "name": "Marketing - Dataframes",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://markia.onrender.com/download/graphs",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "38791acb-d3a7-42cc-a6a9-1dde85fcc132",
+      "name": "Marketing - Graphs",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "={{ $json.message.chat.id }}",
+        "binaryData": true,
+        "additionalFields": {
+          "fileName": "dataframes_preview.pdf"
+        }
+      },
+      "id": "7a058be2-8a5a-449f-b18d-78d911718dcd",
+      "name": "Marketing - Enviar Dataframes",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        -200,
+        120
+      ],
+      "webhookId": "cbc00946-3e2d-4ecc-9c10-cc855008d986",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "={{ $json.message.chat.id }}",
+        "binaryData": true,
+        "additionalFields": {
+          "fileName": "graphs.pdf"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -200,
+        220
+      ],
+      "id": "4530aac8-ac67-433f-9790-197026735960",
+      "name": "Marketing - Enviar Graphs",
+      "webhookId": "9d51a5fd-5cf3-4c84-9aa9-c26f8d662967",
+      "credentials": {
+        "telegramApi": {
+          "id": "CRyJYcG5YA7hxcGD",
+          "name": "Telegram account 3"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "TwoMor3Bot Trigger": {
+      "main": [
+        [
+          {
+            "node": "Router Principal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Router Principal": {
+      "main": [
+        [
+          {
+            "node": "Tumor - Verificar Imagen",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Mensaje de Bienvenida",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Emotion - Verificar Imagen",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [],
+        [
+          {
+            "node": "Tumor - Verificar Imagen",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Emotion - Verificar Imagen",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Marketing - Dataframes",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Marketing - Graphs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tumor - Verificar Imagen": {
+      "main": [
+        [
+          {
+            "node": "Tumor - Obtener Imagen",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Tumor - Solicitar Imagen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tumor - Obtener Imagen": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Emotion - Verificar Imagen": {
+      "main": [
+        [
+          {
+            "node": "Emotion - Obtener Imagen",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Emotion - Obtener Imagen": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Telegram2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marketing - Dataframes": {
+      "main": [
+        [
+          {
+            "node": "Marketing - Enviar Dataframes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marketing - Graphs": {
+      "main": [
+        [
+          {
+            "node": "Marketing - Enviar Graphs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "6a26b4e5-7a64-49a0-b878-34f8a0b3b457",
+  "meta": {
+    "instanceId": "42ef0dec1b38325405e82773bcb48bab153e0912af38a3be876d5964f853231f"
+  },
+  "id": "bPuRkXCVQAtK2DH4",
+  "tags": []
+}
